@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/zuhd acdmic/academy.html"> 
+    <link rel="stylesheet" href="/about.html"> 
+    <link rel="stylesheet" href="/workshop/workshops.html">
+    <link rel="stylesheet" href="/mosque/mosque-landing-page.html">
+    <link rel="stylesheet" href="Maktab/index.html">
+    <link rel="stylesheet" href="scolar/scholars.html">
+    <style>:root {
+        --primary-color: #C69C3F;
+        --background-dark: #1a1a1a;
+        --text-light: #ffffff;
+    }
+  
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+  
+    body {
+        font-family: 'Arial', sans-serif;
+        color: var(--text-light);
+    }
+  
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+        background-color: var(--background-dark);
+        border-bottom: 1px solid var(--primary-color);
+        position: relative;
+        z-index: 1000;
+    }
+  
+    .logo {
+        height: 50px;
+    }
+  
+    .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+  
+    .nav-links {
+        display: flex;
+        gap: 1.5rem;
+    }
+  
+    .nav-links a {
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+  
+    .nav-links a:hover {
+        color: var(--primary-color);
+    }
+  
+    .store-btn {
+        background-color: var(--primary-color);
+        color: var(--text-light);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+  
+    .store-btn:hover {
+        background-color: #8a6923;
+    }
+  
+    .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-light);
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+  
+    /* Mobile Sidebar Styles */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 300px;
+        height: 100%;
+        background-color: var(--background-dark);
+        transition: 0.3s ease;
+        z-index: 1100;
+        padding: 2rem;
+        overflow-y: auto;
+    }
+  
+    .sidebar.active {
+        left: 0;
+    }
+  
+    .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+  
+    .sidebar-close {
+        background: none;
+        border: none;
+        color: var(--text-light);
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+  
+    .sidebar-nav-links {
+        list-style: none;
+    }
+  
+    .sidebar-nav-links li {
+        margin-bottom: 1rem;
+    }
+  
+    .sidebar-nav-links a {
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+    }
+  
+    .sidebar-nav-links a:hover {
+        color: var(--primary-color);
+    }
+  
+    .voice-search {
+        display: flex;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 0.5rem;
+        border-radius: 25px;
+        margin-bottom: 1rem;
+    }
+  
+    .voice-search input {
+        background: none;
+        border: none;
+        color: var(--text-light);
+        flex-grow: 1;
+        margin-right: 0.5rem;
+    }
+  
+    .voice-search button {
+        background: none;
+        border: none;
+        color: var(--primary-color);
+        cursor: pointer;
+    }
+  
+    .voice-status {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+    }
+  
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 1050;
+    }
+  
+    .overlay.active {
+        display: block;
+    }
+  
+    /* Responsive Design */
+    @media screen and (max-width: 1024px) {
+        .nav-links,
+        .store-btn {
+            display: none;
+        }
+  
+        .mobile-menu-toggle {
+            display: block;
+        }
+  
+        .navbar {
+            justify-content: space-between;
+        }
+    } </style>     
+    <title>Maktab - After School Classes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+      <!-- Navbar -->
+      <nav>
+        <div id="navbar"></div>
+     </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+        <p>Islamic after-school classes (Maktab) are supplementary educational programs offered to children and teenagers in many Muslim comunities around the world. These classes tipically take place outside of regular school hours and focus on teaching the principles of Islam, including Quran, Hadith, Islamic history, Fiqh, & Aqidah.</p>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="curriculum">
+        <div class="curriculum-content">
+            <p>The curriculum of Islamic after-school classes may vary depending on age of the students and focus of the program. In some cases, the classes may be designed to teach the fundamentals of islam to young children, such as the Arabic alphabet and basic Islamic rituals like prayer and fasting. As the students get older, the curriculum may become more advanced, focusing on topics like islamic ethics, jurisprudence and spiritually. </p>
+        </div>
+    </section>
+
+    <!-- Teaching Section -->
+     <section class="teaching-img">
+         <div class="container">
+        <div class="image-container">
+            <div class="image-frame">
+                <img src="/Maktab/Zuhaid-1.png" alt="Islamic Education">
+            </div>
+        </div>
+        <div class="content">
+            <p>Islamic after-school classes are often taught by volunteer teachers who are knowledgeable in Islamic studies and are passionate about sharing their knowledge with the next generation. The classes may be held in mosques, community centers, or other dedicated spaces.</p>
+        </div>
+    </div>
+      
+    </section>
+    <div class="islamic-main-container">
+        <div class="islamic-description-content">
+            <p>In addition to providing students with a deeper understanding of Islam, these classes can also help to foster a sense of community among Muslim families. By attending these classes, children and teenagers can connect with their peers and develop relationships with older members of the community who can serve as mentors and role models.</p>
+            <br>
+            <p>Overall, Islamic after-school classes play an important role in the education and spiritual development of young Muslims, providing them with the knowledge and skills they need to navigate the challenges of modern life while remaining true to their faith.</p>
+        </div>
+        <div class="maktab-calendar-wrapper">
+            <div class="calender-img">
+                <img src="/Maktab/calender.png" alt="calender">
+            </div>
+            <div class="maktab-action-buttons">
+                <button class="maktab-btn maktab-btn-download" onclick="downloadMaktabCalendar()">Download</button>
+                <button class="maktab-btn maktab-btn-view" onclick="viewMaktabCalendar()">View</button>
+            </div>
+        </div>
+    </div>
+   
+    <!-- Download Section -->
+    <section class="downloads">
+        <div class="image-card">
+            <img src="pdf02.png" alt="Traffic Management Procedures">
+            <div class="buttons">
+                <button class="btn download-btn" onclick="downloadFile('rules.pdf')">Download</button>
+                <button class="btn view-btn">View</button>
+            </div>
+        </div>
+
+        <!-- Second Image Section -->
+        <div class="image-card">
+            <img src="pdf02.png" alt="Traffic Management Procedures">
+            <div class="buttons">
+                <button class="btn download-btn" onclick="downloadFile('traffic.pdf')">Download</button>
+                <button class="btn view-btn">View</button>
+            </div>
+        </div>
+    </section>
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="quote-text">
+            Sufyan Ath-Thawree: <br>
+            "There is no action after the obligatory ones better than seeking knowledge."
+        </div>
+    </section>
+
+    <!-- Silhouette Section -->
+    <section class="silhouette-section">
+       
+    </section>
+    <footer class="zuhd-footer">
+        <div class="zuhd-footer__content">
+            <div class="zuhd-footer__section">
+                <img src="/logo.png" alt="Zuhd Academy Logo" class="zuhd-footer__logo">
+                <p class="zuhd-footer__text">Welcome to Zuhd Academy, an online Islamic academy committed to providing high-quality Islamic education to students from all over the world.</p>
+                <div class="zuhd-social__wrapper">
+                  <a href="" target="_blank" class="zuhd-social__link"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/zuhd_au/" class="zuhd-social__link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/results?search_query=zuhd.au" class="zuhd-social__link"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/zuhdau/" class="zuhd-social__link"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.tiktok.com/@zuhd.au" class="zuhd-social__link"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="zuhd-footer__section">
+                <h3 class="zuhd-footer__heading">About</h3>
+                <ul class="zuhd-footer__list">
+                    <li class="zuhd-footer__list-item"><a href="/about.html" class="zuhd-footer__link">About Us</a></li>
+                    <li class="zuhd-footer__list-item"><a href="/zuhd acdmic/academy.html" class="zuhd-footer__link">Academy</a></li>
+                    <li class="zuhd-footer__list-item"><a href="/workshop/workshops.html" class="zuhd-footer__link">Workshops</a></li>
+                    <li class="zuhd-footer__list-item"><a href="#" class="zuhd-footer__link">Terms and Conditions</a></li>
+                    <li class="zuhd-footer__list-item"><a href="/Maktab/index.html" class="zuhd-footer__link">After School Classes</a></li>
+                    <li class="zuhd-footer__list-item"><a href="/mosque/mosque-landing-page.html" class="zuhd-footer__link">Masjid</a></li>
+                </ul>
+            </div>
+
+            <div class="zuhd-footer__section">
+                <h3 class="zuhd-footer__heading">Exclusive Services</h3>
+                <ul class="zuhd-footer__list">
+                    <li class="zuhd-footer__list-item">Cell: +61 291000100</li>
+                    <li class="zuhd-footer__list-item">Cell: +61 291000100</li>
+                    <li class="zuhd-footer__list-item">Email: info@zuhd.edu</li>
+                </ul>
+            </div>
+            <div class="zuhd-footer__section">
+                <h3 class="zuhd-footer__heading">GET THE LATEST UPDATES</h3>
+                <p class="zuhd-footer__text">By entering your email address below, you will receive updates about our latest collections, events, and initiatives. Visit our Privacy Policy for more details</p>
+                <div class="zuhd-signup__form">
+                    <input type="email" placeholder="Enter email Address" class="zuhd-signup__input">
+                    <button class="zuhd-signup__button">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="zuhd-footer__bottom">
+            <p class="zuhd-footer__copyright">©2024 Design By Zain Usmani. All rights reserved</p>
+            <div class="zuhd-footer__links">
+                <a href="#" class="zuhd-footer__link">Privacy & Policy</a>
+                <a href="#" class="zuhd-footer__link" style="margin-left: 1rem;">Terms & Condition</a>
+            </div>
+        </div>
+        <script src="navbar.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Scholars</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="/zuhd acdmic/academy.html"> 
+    <link rel="stylesheet" href="/about.html"> 
+    <link rel="stylesheet" href="/workshop/workshops.html">
+    <link rel="stylesheet" href="/mosque/mosque-landing-page.html">
+    <link rel="stylesheet" href="Maktab/index.html">
+    <link rel="stylesheet" href="scolar/scholars.html">
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f0e8;
+        }
+
+        .hero {
+            position: relative;
+            height: 80vh;
+            background:url('/scolar/artboard.png') center/cover;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 5rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-align: center;
+            z-index: 2;
+            opacity: 0;
+        }
+        .scholar-profile-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .scholar-name {
+            font-size: 32px;
+            color: #1a2b3c;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        .scholar-content-layout {
+            position: relative;
+            width: 100%;
+            padding-bottom: 40px;
+        }
+
+        .scholar-image-container {
+            width: 65%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+        .frame-section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        .frame-section img{
+            width: 350px;
+            height: 220px;
+        }
+
+        .scholar-image-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .scholar-info-overlay {
+            position: absolute;
+            width: 45%;
+            right: 0;
+            bottom: 0;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .scholar-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        .scholar-view-more {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: #C5A572;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .scholar-view-more:hover {
+            background-color: #b08d5a;
+        }
+        .sh-profile-outer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .sh-title-heading {
+            font-size: 32px;
+            color: #1a2b3c;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        .sh-content-flex {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            min-height: 400px;
+        }
+
+        .sh-text-block {
+            width: 45%;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            align-self: flex-start;
+            z-index: 2;
+        }
+
+        .sh-photo-wrapper {
+            width: 55%;
+            border-radius: 15px;
+            overflow: hidden;
+            align-self: flex-end;
+        }
+
+        .sh-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .sh-bio-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        .sh-action-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: #C5A572;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .sh-action-btn:hover {
+            background-color: #b08d5a;
+        }
+
+        @media (max-width: 768px) {
+            .sh-content-flex {
+                flex-direction: column-reverse;
+            }
+
+            .sh-text-block,
+            .sh-photo-wrapper {
+                width: 100%;
+            }
+
+            .sh-photo-wrapper {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .scholar-image-container {
+                width: 100%;
+            }
+
+            .scholar-info-overlay {
+                position: relative;
+                width: 90%;
+                margin: -40px auto 0;
+            }
+        }
+        .silhouette-section {
+            background-image: url(/scolar/mosque_bg.png);
+            background-color: white;
+            padding: 40px 0 0;
+            position: relative;
+            height: 45vh;
+        }
+        .zuhd-footer {
+            margin-top: 200px;
+  background-image: url(/footerbg.jpg);
+  background-position: center;
+  background-size: cover;
+    color: white;
+    padding: 4rem 2rem;
+}
+
+.zuhd-footer__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: "Open Sans", serif;
+
+}
+.zuhd-footer__logo{
+    width: 30%;
+    height: 30%;
+}
+
+.zuhd-footer__section {
+    margin-bottom: 2rem;
+    font-family: "Open Sans", serif;
+
+}
+
+.zuhd-footer__heading {
+    color: #c69438;
+    margin-bottom: 1rem;
+    font-family: "Open Sans", serif;
+
+}
+.zuhd-footer__text{
+  padding: 10px 0px;
+  line-height:20px;
+  font-family: "Open Sans", serif;
+
+}
+
+.zuhd-footer__list {
+    list-style: none;
+}
+
+.zuhd-footer__list-item {
+    margin-bottom: 0.5rem;
+    font-family: "Open Sans", serif;
+
+}
+
+.zuhd-footer__link {
+    color: white;
+    text-decoration: none;
+}
+
+.zuhd-social__wrapper {
+    display: flex;
+    gap: 1rem;
+    
+    margin-top: 1rem;
+}
+
+.zuhd-social__link {
+    color:#b38a2f;
+    font-size: 1.5rem;
+}
+
+.zuhd-signup__form {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.zuhd-signup__input {
+    padding: 10px;
+    border-radius: 30px;
+    border: 1px solid;
+    flex: 1;
+}
+
+.zuhd-signup__button {
+    padding: 10px 20px;
+    background-color: #c69438;
+    border: none;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.zuhd-footer__bottom {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+}    
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="navbar"></div>
+     </nav>
+    <section class="hero">
+    </section>
+    <section style=" background: linear-gradient(rgba(255, 255, 255, 0.637), rgba(255, 255, 255, 0.5)), 
+                url('/scolar/wooden-floor-background_53876-88628_1.jpg');">
+                <section class="frame-section">
+                    <img src="/scolar/scholars.png" alt="">
+                </section>
+    <div class="scholar-profile-container">
+        <h1 class="scholar-name">Dr. Mufti Abdur Rahman Mangera</h1>
+        <div class="scholar-content-layout">
+            <div class="scholar-image-container">
+                <img src="/scolar/our01.png" alt="Dr. Mufti Abdur Rahman Mangera">
+            </div>
+            <div class="scholar-info-overlay">
+                <p class="scholar-description">
+                    Dr. Mufti Abdur Rahman Ibn Yusuf Mangera is a British Muslim scholar educated in both the Islamic and Western traditions. He memorised the Qur'an by heart and graduated from the Darul Uloom seminary Bury, UK, and later earned a specialised licence to issue fatwa (legal responses) at Mazahir 'Ulum Saharan
+                </p>
+                <button class="scholar-view-more" onclick="viewMoreInfo()">View more</button>
+            </div>
+        </div>
+</div>
+<div class="sh-profile-outer">
+    <h1 class="sh-title-heading">Shaykh Hasan Ali</h1>
+    <div class="sh-content-flex">
+        <div class="sh-text-block">
+            <p class="sh-bio-text">
+                Shaykh Hasan Ali graduated in 1997 as a scholar/'alim in Islamic Education and then gained a Masters Degree in Educational Psychology at the Institute of Education (University of London). He became the Imam of London Islamic Cultural Society (LICS) mosque in North London (www.lics.info)
+            </p>
+            <button class="sh-action-btn" onclick="showMoreDetails()">View more</button>
+        </div>
+        <div class="sh-photo-wrapper">
+            <img src="/scolar/our04.png" alt="Shaykh Hasan Ali" class="sh-photo">
+        </div>
+    </div>
+</div>
+
+<div class="scholar-profile-container">
+    <h1 class="scholar-name">Maulana Sulaiman Khatani Ibn Yusuf</h1>
+    <div class="scholar-content-layout">
+        <div class="scholar-image-container">
+            <img src="/scolar/our03.jpg" alt="Dr. Mufti Abdur Rahman Mangera">
+        </div>
+        <div class="scholar-info-overlay">
+            <p class="scholar-description">
+                Maulana Ahmed Suleman Khatani was born in Durban, South Africa. He completed his Hifz ul Quraan at an early age. He then enrolled into Madrasah Arabia Islamia, Azaadville, South Africa where he completed his Aalim Faadhil course in 1993. Maulana studied under many great scholars like Sheikhul Hadith Hadhrat Maulana Fazlur Rahman Azmi Saheb (DB) and Hadhrat Maulana Abdul Hamid Ishaq Saheb (DB). </p>
+            <button class="scholar-view-more" onclick="viewMoreInfo()">View more</button>
+        </div>
+    </div>
+</div>
+</section>
+<section class="frame-section">
+    <img src="/scolar/scholars.png" alt="">
+</section>
+<div class="scholar-profile-container">
+    <h1 class="scholar-name">Dr. Maulana Sami Al-Hashmi</h1>
+    <div class="scholar-content-layout">
+        <div class="scholar-image-container">
+            <img src="/scolar/our02.png" alt="Dr. Mufti Abdur Rahman Mangera">
+        </div>
+        <div class="scholar-info-overlay">
+            <p class="scholar-description">
+                Born is Vienna, Austria. He began his university education at the University of Otago, New Zealand where he completed a Masters of Dental Surgery with a full scholarship. While practicing as a dental surgeon he then completed a Degree in Islamic studies from the World Islamic Sciences & Education University in Jordan.  <button class="scholar-view-more" onclick="viewMoreInfo()">View more</button>
+        </div>
+    </div>
+</div>
+<!-- Silhouette Section -->
+<section class="silhouette-section">
+    <footer class="zuhd-footer">
+        <div class="zuhd-footer__content">
+            <div class="zuhd-footer__section">
+                <img src="/logo.png" alt="Zuhd Academy Logo" class="zuhd-footer__logo">
+                <p class="zuhd-footer__text">Welcome to Zuhd Academy, an online Islamic academy committed to providing high-quality Islamic education to students from all over the world.</p>
+                <div class="zuhd-social__wrapper">
+                  <a href="" target="_blank" class="zuhd-social__link"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/zuhd_au/" class="zuhd-social__link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/results?search_query=zuhd.au" class="zuhd-social__link"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/zuhdau/" class="zuhd-social__link"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.tiktok.com/@zuhd.au" class="zuhd-social__link"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="zuhd-footer__section">
+                <h3 class="zuhd-footer__heading">About</h3>
+                <ul class="zuhd-footer__list">
+                    <li class="zuhd-footer__list-item"><a href="/about.html" class="zuhd-footer__link">About Us</a></li>
+                    <li class="zuhd-footer__list-item"><a href="/zuhd acdmic/academy.html" class="zuhd-footer__link">Academy</a></li>
+                    <li class="zuhd-footer__list-item"><a href="/workshop/workshops.html" class="zuhd-footer__link">Workshops</a></li>
+                    <li class="zuhd-footer__list-item"><a href="#" class="zuhd-footer__link">Terms and Conditions</a></li>
+                    <li class="zuhd-footer__list-item"><a href="/Maktab/index.html" class="zuhd-footer__link">After School Classes</a></li>
+                    <li class="zuhd-footer__list-item"><a href="/mosque/mosque-landing-page.html" class="zuhd-footer__link">Masjid</a></li>
+                </ul>
+            </div>
+
+            <div class="zuhd-footer__section">
+                <h3 class="zuhd-footer__heading">Exclusive Services</h3>
+                <ul class="zuhd-footer__list">
+                    <li class="zuhd-footer__list-item">Cell: +61 291000100</li>
+                    <li class="zuhd-footer__list-item">Cell: +61 291000100</li>
+                    <li class="zuhd-footer__list-item">Email: info@zuhd.edu</li>
+                </ul>
+            </div>
+            <div class="zuhd-footer__section">
+                <h3 class="zuhd-footer__heading">GET THE LATEST UPDATES</h3>
+                <p class="zuhd-footer__text">By entering your email address below, you will receive updates about our latest collections, events, and initiatives. Visit our Privacy Policy for more details</p>
+                <div class="zuhd-signup__form">
+                    <input type="email" placeholder="Enter email Address" class="zuhd-signup__input">
+                    <button class="zuhd-signup__button">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="zuhd-footer__bottom">
+            <p class="zuhd-footer__copyright">©2024 Design By Zain Usmani. All rights reserved</p>
+            <div class="zuhd-footer__links">
+                <a href="#" class="zuhd-footer__link">Privacy & Policy</a>
+                <a href="#" class="zuhd-footer__link" style="margin-left: 1rem;">Terms & Condition</a>
+            </div>
+        </div> 
+</section>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero animations
+        gsap.to(".hero h1", {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power4.out"
+        });
+
+        gsap.to(".microphone", {
+            opacity: 1,
+            x: 0,
+            duration: 1.5,
+            delay: 0.5,
+            ease: "power4.out"
+        });
+
+        // Decoration animation
+        gsap.to(".decoration", {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: ".decoration",
+                start: "top 80%"
+            }
+        });
+
+        // Scholar boxes animation
+        gsap.utils.toArray(".scholar-box").forEach((box, i) => {
+            gsap.to(box, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: box,
+                    start: "top 80%"
+                },
+                delay: i * 0.3
+            });
+        });
+        function viewMoreInfo() {
+            alert('Loading more information about Dr. Mufti Abdur Rahman Mangera...');
+        }
+    </script>
+        <script src="navbar.js"></script>
+</body>
+</html>
